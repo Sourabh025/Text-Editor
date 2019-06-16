@@ -1,7 +1,7 @@
 import pymysql
 
 import tkinter
-
+import string
 
 try:
     # Open database connection
@@ -60,20 +60,21 @@ def body(screen):
     k="SELECT body FROM Post WHERE '1'=Post_id"
     cursor.execute(k)
     result= cursor.fetchall()
-    w=tkinter.Label(newscreen, text=result, bg='orange').grid(padx=220, pady=100)
+    #result=string.replace(result ,"{" , "}", "")
+    w=tkinter.Label(newscreen, text=result, bg='orange').grid(padx=200, pady=100)
     print(result)
 
 
-def userid(screen):
+def share(screen):
 
     newscreen=tkinter.Toplevel(screen)
-    newscreen.title("userid")
+    newscreen.title("share")
     newscreen.geometry("500x300")
 
-    n = "SELECT user_id FROM Post WHERE '1'=Post_id"
+    n = "SELECT share FROM Post WHERE '1'=Post_id"
     cursor.execute(n)
     result=cursor.fetchall()
-    w= tkinter.Label(newscreen, text=result, bg='orange').grid(padx=200, pady=100)
+    w= tkinter.Label(newscreen, text=result, bg='orange').grid(padx=220, pady=100)
     print(result)
 
 def comment(screen):
@@ -98,7 +99,7 @@ def success():
     screen.title("Wellcome")
     #tkinter.Label(screen, text="You are successfully login").grid(padx=50, pady=50)
     x=tkinter.Button(screen, text="body", width=30, bg='blue', command=lambda: body(screen)).grid(row=1, column=4, pady=50, padx=70)
-    z=tkinter.Button(screen, text="userid", width=30, bg='blue', command=lambda: userid(screen)).grid(row=1, column=5, pady = 50, padx=70)
+    z=tkinter.Button(screen, text="like", width=30, bg='blue', command=lambda: share(screen)).grid(row=1, column=5, pady = 50, padx=70)
     y=tkinter.Button(screen, text="comment", width=30, bg='blue', command=lambda: comment(screen)).grid(row=1, column=6, pady = 50, padx=70)
 
 login.mainloop()
