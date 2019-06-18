@@ -57,13 +57,13 @@ def v():
     s.pack(width=50)
 
 def cut():
-    TextArea.event.genrate(("<<Cut>>"))
+    TextArea.event_genrate(("<<Cut>>"))
 
 def copy():
-    TextArea.event.genrate(("<<Copy>>"))
+    TextArea.event_genrate(("<<Copy>>"))
 
 def paste():
-    TextArea.event.genrate(("<<Paste>>"))
+    TextArea.event_genrate(("<<Paste>>"))
 
 
 
@@ -111,7 +111,7 @@ if __name__ == '__main__':
     Scroll.pack(side=RIGHT, fill=Y)
     Scroll.config(command=TextArea.yview)
     TextArea.config(yscrollcommand=Scroll.set)
-    #popup right click menu
+    
 
 
     root.mainloop()
